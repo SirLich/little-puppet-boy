@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://didfq6gpf4q61"]
 
 [ext_resource type="Script" uid="uid://bcvmf2exaqhr3" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://hp7p7kc7v7sf" path="res://scenes/player/hit_box.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://cmuanwm5huih4" path="res://scenes/player/attack.gd" id="3_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 45.0
@@ -94,20 +97,24 @@ _data = {
 &"attack": SubResource("Animation_8afob")
 }
 
-[node name="Player" type="Node2D" unique_id=1339953909 node_paths=PackedStringArray("hit_box", "attack_animation")]
+[node name="Player" type="Node2D" unique_id=1339953909 node_paths=PackedStringArray("hit_box", "attack_animation", "health_component")]
 script = ExtResource("1_8afob")
 hit_box = NodePath("HitBox")
 attack_animation = NodePath("AttackShape/AttackAnimation")
+health_component = NodePath("HealthComponent")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=833775832]
-collision_mask = 2
+collision_mask = 8
+script = ExtResource("2_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=749503063]
 rotation = 0.024418239
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="AttackShape" type="Area2D" parent="." unique_id=1453370406]
-collision_mask = 2
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape" unique_id=1701338926]
 position = Vector2(-18.125, 1)
@@ -117,3 +124,5 @@ debug_color = Color(0.9656903, 0.18792239, 1.92523e-07, 0.41960785)
 
 [node name="AttackAnimation" type="AnimationPlayer" parent="AttackShape" unique_id=2074018557]
 libraries/ = SubResource("AnimationLibrary_dovo2")
+
+[node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("2_dovo2")]

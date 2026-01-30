@@ -1,0 +1,30 @@
+extends Node2D
+class_name HealthComponent
+
+@export var max_health = 100
+@export var do_shake = true
+@onready var health = max_health
+
+## How long the player is invincible, in seconds
+@export var invincibility_time = 0.5
+var i_frames = 0
+
+func is_invincible():
+	return i_frames > 0
+	
+func _physics_process(delta: float) -> void:
+	
+	if is_invincible():
+		i_frames -= delta
+
+func take_damage(damage : float) -> void:
+	health -= damage
+	i_frames = invincibility_time
+	
+	if do_shake:
+		Utils.get_camera().start_shake(5.0, 0.2, 20)
+	
+	if health <= 0:
+		## TODO: Configure player death animation or scene
+		get_parent().queue_free()
+		

@@ -3,22 +3,16 @@ class_name Player
 
 @export var speed = 600
 @export var hit_box: Area2D
-@export var max_health = 100
 @export var attack_speed = 5.0
 @export var attack_animation: AnimationPlayer
+@export var attack_damage = 10
+@export var health_component: HealthComponent
 
-## How long the player is invincible, in seconds
-@export var invincibility_time = 0.5
-@onready var health = max_health
-var i_frames = 0
 var facing_direction = 1
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left","right", "up", "down")
 	global_position += direction * speed * delta
-	
-	if is_invincible():
-		i_frames -= delta
 		
 	if direction.length() > 0.1:
 		if direction.x > 0:
@@ -40,15 +34,13 @@ func _input(event: InputEvent) -> void:
 func is_attacking() -> bool:
 	return attack_animation.is_playing()
 	
-func is_invincible():
-	return i_frames > 0
-	
 func on_took_damage(area: Area2D) -> void:
-	## TODO: Configure how much damage the player will take
-	health -= 10
-	i_frames = invincibility_time
-	Utils.get_camera().start_shake(5.0, 0.2, 20)
-	
-	if health <= 0:
-		## TODO: Configure player death animation or scene
-		queue_free()
+	pass
+	### TODO: Configure how much damage the player will take
+	#health -= 10
+	#i_frames = invincibility_time
+	#Utils.get_camera().start_shake(5.0, 0.2, 20)
+	#
+	#if health <= 0:
+		### TODO: Configure player death animation or scene
+		#queue_free()
