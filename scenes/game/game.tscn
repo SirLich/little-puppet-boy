@@ -10,18 +10,21 @@
 [node name="Game" type="Node2D" unique_id=1234032883]
 script = ExtResource("1_sul5r")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1200371875]
+rotation = -0.0035852133
+script = ExtResource("5_5i0tg")
+
 [node name="PauseHandler" parent="." unique_id=796881595 instance=ExtResource("2_7h61r")]
 
 [node name="Player" parent="." unique_id=1339953909 instance=ExtResource("4_kelw5")]
-position = Vector2(926, 608)
 rotation = -0.0035852133
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1362499008]
-position = Vector2(962, 540)
-script = ExtResource("5_5i0tg")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1084481108]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
 
 [node name="Joy" parent="." unique_id=759606728 instance=ExtResource("7_bdhmt")]
-position = Vector2(456, 286)
 move_speed = 100
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1703217116]
