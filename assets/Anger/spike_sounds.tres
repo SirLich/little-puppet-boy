@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c2cg0ct0lconm"]
+
+[ext_resource type="AudioStream" uid="uid://c5bnm2gkqypb1" path="res://assets/Anger/sfx_spike_01.ogg" id="1_pum7d"]
+[ext_resource type="AudioStream" uid="uid://r0gmk25yqu5" path="res://assets/Anger/sfx_spike_02.ogg" id="2_evh2t"]
+[ext_resource type="AudioStream" uid="uid://xr1iac2wrtcx" path="res://assets/Anger/sfx_spike_03.ogg" id="3_vlblf"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_pum7d")
+stream_1/stream = ExtResource("2_evh2t")
+stream_2/stream = ExtResource("3_vlblf")

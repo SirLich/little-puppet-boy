@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkqy7m8ikcqcj" path="res://scenes/spike/spike.gd" id="1_1xk1p"]
 [ext_resource type="PackedScene" uid="uid://qcdqy265pju8" path="res://scenes/damage_marker/damage_marker.tscn" id="1_l5oik"]
+[ext_resource type="AudioStream" uid="uid://c2cg0ct0lconm" path="res://assets/Anger/spike_sounds.tres" id="2_ap5vv"]
 [ext_resource type="Script" uid="uid://cmuanwm5huih4" path="res://scenes/player/attack.gd" id="3_3bj6n"]
 [ext_resource type="Texture2D" uid="uid://bi7rqvdvtw4nt" path="res://assets/spike.png" id="4_dknvm"]
 
@@ -144,6 +145,7 @@ size = Vector2(41, 21)
 [node name="Spike" type="Node2D" unique_id=1575756587 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_1xk1p")
 animation_player = NodePath("AnimationPlayer")
+spike_sound = ExtResource("2_ap5vv")
 
 [node name="DamageMarker" parent="." unique_id=599711416 instance=ExtResource("1_l5oik")]
 scale = Vector2(1e-05, 1e-05)
