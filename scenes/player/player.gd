@@ -86,13 +86,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		if is_currently_attacking:
+		if not is_currently_attacking:
 			do_attack()
 	if event.is_action_pressed("dash"):
 		do_dash()
-			
-func is_attacking() -> bool:
-	return attack_animation.is_playing()
 
 func do_dash():
 	health_component.i_frames = dash_dur
