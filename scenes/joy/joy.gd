@@ -7,8 +7,8 @@ class_name Joy
 @export var small_jump_distance = 200
 @export var small_jump_delay = 0.5
 @export var big_jump_delay = 0.5
-@export var num_small_jump_min = 4
-@export var num_small_jumps_max = 6
+@export var num_small_jump_min = 2
+@export var num_small_jumps_max = 4
 @export var idle_time_min = 1
 @export var idle_time_max = 1
 @export var num_spikes_min = 30
@@ -17,6 +17,8 @@ class_name Joy
 
 @export_group("Audio")
 @export var intro_audio : AudioStream
+@export var joy_audio_in_order : Array[AudioStream]
+var audio_index = 0
 
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
@@ -32,6 +34,10 @@ func _ready() -> void:
 func play_audio(audio):
 	SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
 	await Utils.wait(intro_audio.get_length() / Global.settings.audio_speed)
+
+func play_next_audio_clip():
+	play_audio(joy_audio_in_order[audio_index])
+	audio_index += 1
 	
 func do_intro():
 	health_component.invulnerable =  true
@@ -46,6 +52,7 @@ func do_intro():
 func do_idle():
 	await get_tree().process_frame
 	print("do_idle")
+	play_next_audio_clip()
 	clap_animation.play("clap")
 	await clap_animation.animation_finished
 	animation_player.play("idle")
@@ -68,7 +75,7 @@ func do_small_jumps():
 	
 	for i in range(randi_range(num_small_jump_min, num_small_jumps_max)):
 		await do_small_jump()
-	if randf() > 0.3:
+	if randf() > 0.8:
 		do_idle()
 	else:
 		do_big_jump()
