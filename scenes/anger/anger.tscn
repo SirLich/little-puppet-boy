@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_elhyw"]
 [ext_resource type="Texture2D" uid="uid://du4m80wgj4rgq" path="res://assets/Anger/Anger_Body/Anger_Body-2.png" id="3_wyuln"]
 [ext_resource type="Texture2D" uid="uid://bb31vpntxkn7" path="res://assets/Anger/Anger_Body/Anger_Body-3.png" id="4_hnwap"]
+[ext_resource type="PackedScene" uid="uid://cd82rxg1qpvjf" path="res://scenes/sadness/sadness.tscn" id="4_udgi6"]
+[ext_resource type="AudioStream" uid="uid://dx2e5vykkvr7u" path="res://assets/Audio/VO/Unmasked-VO-Anger-to-Sad.wav" id="5_cpdxm"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_wyuln"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="6_hd3gt"]
 [ext_resource type="Texture2D" uid="uid://dtbwj1mp0juwe" path="res://assets/Anger/Anger_Mask/Anger_Mask-1.png" id="6_ktt7b"]
@@ -22,6 +24,51 @@
 [ext_resource type="Texture2D" uid="uid://cqe3xqvwdpnfh" path="res://assets/Anger/Anger_Mask/Anger_Mask-12.png" id="17_wj5lh"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="19_od12m"]
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="20_fcopi"]
+
+[sub_resource type="Animation" id="Animation_udgi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_elhyw"]
+resource_name = "hurt"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udgi6"]
+_data = {
+&"RESET": SubResource("Animation_udgi6"),
+&"hurt": SubResource("Animation_elhyw")
+}
+
+[sub_resource type="Animation" id="Animation_cpdxm"]
+resource_name = "die"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymwoy"]
+_data = {
+&"die": SubResource("Animation_cpdxm")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m7jql"]
 animations = [{
@@ -91,11 +138,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcopi"]
 radius = 120.50311
 
-[node name="Anger" type="Node2D" unique_id=1133342481 node_paths=PackedStringArray("health_component")]
+[node name="Anger" type="Node2D" unique_id=1133342481 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation")]
 script = ExtResource("1_wcht5")
 health_component = NodePath("HealthComponent")
 angry_music = ExtResource("2_vx2qk")
 fire_scene = ExtResource("3_elhyw")
+hurt_animation = NodePath("HurtAnimation")
+death_animation = NodePath("DeathAnimation")
+next_enemy = ExtResource("4_udgi6")
+transition_audio = ExtResource("5_cpdxm")
+
+[node name="SpawnAnimation" type="AnimationPlayer" parent="." unique_id=51431277]
+
+[node name="HurtAnimation" type="AnimationPlayer" parent="." unique_id=934496832]
+libraries/ = SubResource("AnimationLibrary_udgi6")
+
+[node name="DeathAnimation" type="AnimationPlayer" parent="." unique_id=604221577]
+libraries/ = SubResource("AnimationLibrary_ymwoy")
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("5_wyuln")]
 shadow_size = 96
@@ -114,8 +173,6 @@ frame_progress = 0.40742838
 material = SubResource("ShaderMaterial_od12m")
 position = Vector2(3.305785, -213.22313)
 sprite_frames = SubResource("SpriteFrames_wyuln")
-
-[node name="SpawnAnimation" type="AnimationPlayer" parent="." unique_id=51431277]
 
 [node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("19_od12m")]
 
