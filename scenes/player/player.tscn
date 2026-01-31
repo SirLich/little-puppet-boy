@@ -540,6 +540,7 @@ hit_box = NodePath("HitBox")
 attack_animation = NodePath("AttackShape/AttackAnimation")
 health_component = NodePath("HealthComponent")
 attack_shape = NodePath("AttackShape")
+dash_speed = 2.5
 player_sprite = NodePath("Visuals/PlayerSprite")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=833775832]
