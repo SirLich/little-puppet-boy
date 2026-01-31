@@ -58,12 +58,19 @@ func do_small_jump():
 	jump_projectile.fire()
 	await jump_projectile.on_hit_ground
 	animation_player.play("small_jump_attack")
-	await Utils.wait(small_jump_delay)
+	#await animation_player.animation_finished
+	animation_player.play("big_jump_prep", 0.2, 2.0)
+	await animation_player.animation_finished
+	print("anim finished!")
+	animation_player.play("big_jump_prep", 0.2, -2.0, true)
+	await animation_player.animation_finished
+	print("anim finished!")
+
 
 func do_big_jump():
 	await get_tree().process_frame
-	print("do_big_jump")
 	var attack_pos = Utils.get_player().global_position
+	animation_player.play("big_jump_prep", 0.2)
 	var new_damage_marker = damage_marker_prototype.instantiate() as Node2D
 	new_damage_marker.scale *= 0.6
 	add_sibling(new_damage_marker)
@@ -71,6 +78,8 @@ func do_big_jump():
 	
 	await Utils.wait(2.0)
 	jump_projectile.configure(attack_pos)
+	animation_player.play_backwards("big_jump_prep", 0.2)
+
 	jump_projectile.fire()
 	
 	new_damage_marker.queue_free()

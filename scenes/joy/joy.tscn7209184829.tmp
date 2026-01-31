@@ -1089,9 +1089,20 @@ radius = 13.038404
 
 [node name="Joy" type="Node2D" unique_id=759606728 node_paths=PackedStringArray("animation_player", "jump_projectile")]
 script = ExtResource("1_c43gh")
+move_speed = null
 damage_marker_prototype = ExtResource("2_mbnm7")
 spike_prototype = ExtResource("3_ji81p")
+small_jump_distance = null
+small_jump_delay = null
+big_jump_delay = null
 animation_player = NodePath("AnimationPlayer")
+num_small_jump_min = null
+num_small_jumps_max = null
+idle_time_min = null
+idle_time_max = null
+num_spikes_min = null
+num_spikes_max = null
+num_time_between_spikes = null
 jump_projectile = NodePath("JumpProjectile")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1684279621]
