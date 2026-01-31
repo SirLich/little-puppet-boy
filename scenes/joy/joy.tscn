@@ -24,10 +24,18 @@
 [ext_resource type="AudioStream" uid="uid://ceixbjl6htcql" path="res://assets/Audio/VO/Unmasked-VO-Joy-9.wav" id="12_67ype"]
 [ext_resource type="Texture2D" uid="uid://byymx773thxkj" path="res://assets/Joy_BodyParts/Joy_UpperLeg.png" id="13_nuqnv"]
 [ext_resource type="Texture2D" uid="uid://bqy0nhrnkaa3f" path="res://assets/Joy_BodyParts/Joy_LowerLeg.png" id="14_pfiip"]
+[ext_resource type="Texture2D" uid="uid://vcflcoa71mqx" path="res://assets/CloudAttack/CloudyAttack-1.png" id="18_okthe"]
+[ext_resource type="Texture2D" uid="uid://b357vjtl3x7ay" path="res://assets/blank.png" id="18_tbqy4"]
+[ext_resource type="Texture2D" uid="uid://dhctwbahhhbop" path="res://assets/CloudAttack/CloudyAttack-2.png" id="19_tbqy4"]
+[ext_resource type="Texture2D" uid="uid://o3gwyekcew08" path="res://assets/CloudAttack/CloudyAttack-3.png" id="20_sh5x1"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="20_u62t4"]
+[ext_resource type="Texture2D" uid="uid://c6sglgwudkpde" path="res://assets/CloudAttack/CloudyAttack-4.png" id="21_srsy6"]
 [ext_resource type="Texture2D" uid="uid://b1b8wnh45h3p0" path="res://assets/JoyMask/Joy_Mask-1.png" id="21_t0my5"]
+[ext_resource type="Texture2D" uid="uid://dxjvlsu8ut3bb" path="res://assets/CloudAttack/CloudyAttack-5.png" id="22_xhlxp"]
+[ext_resource type="Texture2D" uid="uid://c2jxd840c2jiw" path="res://assets/CloudAttack/CloudyAttack-6.png" id="23_3br2b"]
 [ext_resource type="Texture2D" uid="uid://r6vi44c53ump" path="res://assets/JoyMask/Joy_Mask-2.png" id="23_mj0x5"]
 [ext_resource type="Texture2D" uid="uid://boh72vbf4wbxa" path="res://assets/JoyMask/Joy_Mask-3.png" id="24_p6ddf"]
+[ext_resource type="Texture2D" uid="uid://b32lbimnse3ig" path="res://assets/CloudAttack/CloudyAttack-7.png" id="24_rd8ot"]
 [ext_resource type="Texture2D" uid="uid://d4oissvre5t5" path="res://assets/JoyMask/Joy_Mask-4.png" id="25_4xve6"]
 [ext_resource type="Texture2D" uid="uid://cn3ogvoucdb4l" path="res://assets/JoyMask/Joy_Mask-5.png" id="26_cdek4"]
 [ext_resource type="Texture2D" uid="uid://x2awfjtfh5pd" path="res://assets/JoyMask/Joy_Mask-6.png" id="27_u561c"]
@@ -63,6 +71,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [13.038404]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SmallAttackAnimation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_vgs4h"]
@@ -587,7 +607,7 @@ tracks/19/keys = {
 
 [sub_resource type="Animation" id="Animation_8g10w"]
 resource_name = "jump_explode_attack"
-length = 0.5
+length = 0.4
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -612,6 +632,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [13.038404, 230.14, 13.038404]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SmallAttackAnimation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ji81p"]
@@ -990,6 +1022,41 @@ _data = {
 radius = 125.0
 height = 256.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_73maf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_tbqy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_okthe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tbqy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_sh5x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_srsy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xhlxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3br2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_rd8ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tbqy4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g10w"]
 radius = 13.038404
 
@@ -1092,6 +1159,10 @@ shape = SubResource("CapsuleShape2D_wrlo7")
 debug_color = Color(0.673618, 0.5019504, 0.21621296, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("2_8c6cf")]
+
+[node name="SmallAttackAnimation" type="AnimatedSprite2D" parent="." unique_id=1536998157]
+modulate = Color(0.89478916, 0.29897404, 0.20058358, 1)
+sprite_frames = SubResource("SpriteFrames_73maf")
 
 [node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("8_8g10w")]
 process_mode = 3
