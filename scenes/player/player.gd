@@ -10,6 +10,7 @@ class_name Player
 @export var attack_shape: Attack
 @export var dash_speed = 4.5
 @export var dash_dur = .25
+@export var player_sprite: AnimatedSprite2D
 
 var facing_direction = 1
 var last_direction:Vector2
@@ -34,8 +35,29 @@ func _physics_process(delta: float) -> void:
 			facing_direction = -1
 		if direction.x < 0:
 			facing_direction = 1
+
 		scale.x = facing_direction
 		queue_redraw()
+	
+	var x_size = abs(direction.x)
+	var y_size = abs(direction.y)
+	
+	if is_attacking():
+		if y_size > x_size:
+			if direction.y < 0:
+				player_sprite.play("attack_up")
+			else:
+				player_sprite.play("attack_down")
+		else:
+			player_sprite.play("attack_sideways")
+	else:
+		if y_size > x_size:
+			if direction.y < 0:
+				player_sprite.play("move_up")
+			else:
+				player_sprite.play("move_down")
+		else:
+			player_sprite.play("move_sideways")
 	
 func _ready() -> void:
 	hit_box.area_entered.connect(on_took_damage)
@@ -55,6 +77,7 @@ func do_dash():
 	dash_time = dash_dur
 	
 func do_attack():
+	
 	attack_animation.play("attack", -1, attack_speed)
 	
 func on_took_damage(area: Area2D) -> void:
