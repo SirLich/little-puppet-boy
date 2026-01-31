@@ -24,6 +24,9 @@ func change_to_packed(packed_scene : PackedScene):
 
 func change_to_packed_with_default_transition(packed_scene : PackedScene):
 	change_to_packed_with_transition(packed_scene, Global.settings.default_scene_transition)
+
+func change_to_packed_with_carpet_transition(packed_scene : PackedScene):
+	change_to_packed_with_transition(packed_scene, Global.settings.play_scene_transition)
 	
 ## Changes to a packed scene, with a transition. Transition should be a packed scene
 ## in which the root node is a Transition

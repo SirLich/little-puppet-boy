@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func on_play_pressed():
 	SoundManager.play_music(Global.settings.game_music, 2.0)
-	SceneManager.change_to_packed_with_default_transition(Global.settings.game_scene)
+	SceneManager.change_to_packed_with_carpet_transition(Global.settings.game_scene)
 	
 func on_settings_pressed():
 	SceneManager.change_to_packed_with_default_transition(Global.settings.settings_scene)

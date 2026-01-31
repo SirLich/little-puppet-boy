@@ -21,6 +21,8 @@ class_name Joy
 @export var transition_audio : AudioStream
 @export var joy_audio_in_order : Array[AudioStream]
 var audio_index = 0
+@export var small_jump_land_sound : AudioStream
+@export var large_jump_land_sound : AudioStream
 
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
@@ -144,6 +146,7 @@ func do_small_jump():
 	jump_projectile.configure(pos)
 	jump_projectile.fire()
 	await jump_projectile.on_hit_ground
+	SoundManager.play_sound(small_jump_land_sound)
 	attack_animations.play("small_jump_attack")
 
 
@@ -165,11 +168,14 @@ func do_big_jump():
 	jump_projectile.configure(attack_pos)
 	animation_player.play_backwards("big_jump_prep", 0.2)
 
+	health_component.invulnerable = true
 	jump_projectile.fire()
 	
 	new_damage_marker.queue_free()
 	
 	await jump_projectile.on_hit_ground
+	SoundManager.play_sound(large_jump_land_sound)
+	health_component.invulnerable = false
 	animation_player.play("big_jump_attack")
 	await Utils.wait(big_jump_delay)
 

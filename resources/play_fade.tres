@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CurtainTransition" format=3 uid="uid://bo638ignsatct"]
+
+[ext_resource type="PackedScene" uid="uid://ckr8lenk0nwf7" path="res://scenes/transitions/curtain_transition/curtain_transititon.tscn" id="1_jfvhc"]
+[ext_resource type="Script" uid="uid://6lvb4av1epkq" path="res://scenes/transitions/curtain_transition/curtain_transititon.gd" id="2_850si"]
+
+[resource]
+script = ExtResource("2_850si")
+fade_scene = ExtResource("1_jfvhc")
+metadata/_custom_type_script = "uid://d3pr4sbgjj0l5"
