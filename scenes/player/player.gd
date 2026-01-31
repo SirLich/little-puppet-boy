@@ -31,10 +31,16 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if not is_attacking():
 			do_attack()
+	if event.is_action_pressed("dash"):
+		do_dash()
 			
 func is_attacking() -> bool:
 	return attack_animation.is_playing()
 
+## TODO: Make the player dash forward, and become invincible
+func do_dash():
+	pass
+	
 func do_attack():
 	attack_animation.play("attack", -1, attack_speed)
 	

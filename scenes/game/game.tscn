@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
-[ext_resource type="PackedScene" uid="uid://bj5rbd1te67by" path="res://scenes/obstacle/obstacle.tscn" id="5_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://nqq7fmjjjqi2" path="res://scenes/joy/joy.tscn" id="7_bdhmt"]
 
 [node name="Game" type="Node2D" unique_id=1234032883]
@@ -17,11 +16,8 @@ position = Vector2(926, 608)
 rotation = -0.0035852133
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1362499008]
-position = Vector2(935, 526)
+position = Vector2(962, 540)
 script = ExtResource("5_5i0tg")
-
-[node name="Obstacle" parent="." unique_id=834136642 instance=ExtResource("5_lfrn8")]
-position = Vector2(557, 775)
 
 [node name="Joy" parent="." unique_id=759606728 instance=ExtResource("7_bdhmt")]
 position = Vector2(456, 286)

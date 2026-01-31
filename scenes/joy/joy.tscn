@@ -35,6 +35,65 @@ tracks/1/keys = {
 "update": 0,
 "values": [13.038404]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1728395, 1.1728395)]
+}
+
+[sub_resource type="Animation" id="Animation_vgs4h"]
+resource_name = "big_jump_attack"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpExplodeAttack:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [13.038404, 504.69, 13.038404]
+}
+
+[sub_resource type="Animation" id="Animation_jhj58"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.1728395, 1.1728395), Vector2(1.173, 1.743), Vector2(1.1728395, 1.1728395)]
+}
 
 [sub_resource type="Animation" id="Animation_8g10w"]
 resource_name = "jump_explode_attack"
@@ -68,6 +127,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ji81p"]
 _data = {
 &"RESET": SubResource("Animation_ji81p"),
+&"big_jump_attack": SubResource("Animation_vgs4h"),
+&"idle": SubResource("Animation_jhj58"),
 &"small_jump_attack": SubResource("Animation_8g10w")
 }
 
