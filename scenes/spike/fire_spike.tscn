@@ -1,10 +1,18 @@
 [gd_scene format=3 uid="uid://t3spdettor2f"]
 
-[ext_resource type="Script" uid="uid://dkqy7m8ikcqcj" path="res://scenes/spike/spike.gd" id="1_tpqbe"]
+[ext_resource type="Script" uid="uid://gax15jjql43i" path="res://scenes/spike/fire_spike.gd" id="1_m7v42"]
 [ext_resource type="AudioStream" uid="uid://c2cg0ct0lconm" path="res://assets/Anger/spike_sounds.tres" id="2_7aigw"]
 [ext_resource type="PackedScene" uid="uid://qcdqy265pju8" path="res://scenes/damage_marker/damage_marker.tscn" id="3_1h2aq"]
 [ext_resource type="Script" uid="uid://cmuanwm5huih4" path="res://scenes/player/attack.gd" id="4_t5j87"]
-[ext_resource type="Texture2D" uid="uid://bi7rqvdvtw4nt" path="res://assets/spike.png" id="5_mtsvd"]
+[ext_resource type="Texture2D" uid="uid://dwo65hbrnf4mu" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-1.png" id="5_e1xwk"]
+[ext_resource type="Texture2D" uid="uid://1m0vswp0226j" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-2.png" id="6_qua77"]
+[ext_resource type="Texture2D" uid="uid://c1w8d2bf717sc" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-3.png" id="7_60tx2"]
+[ext_resource type="Texture2D" uid="uid://c3biwc1j73dba" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-4.png" id="8_038ro"]
+[ext_resource type="Texture2D" uid="uid://dfumvacqi7auh" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-5.png" id="9_e86gk"]
+[ext_resource type="Texture2D" uid="uid://c8jghdnb4xiuv" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-6.png" id="10_bx43t"]
+[ext_resource type="Texture2D" uid="uid://2unln5621a2g" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-7.png" id="11_46di5"]
+[ext_resource type="Texture2D" uid="uid://bghrtglfjuwal" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-8.png" id="12_xmf8c"]
+[ext_resource type="Texture2D" uid="uid://d0u44bujcq0ey" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-9.png" id="13_1s10e"]
 
 [sub_resource type="Animation" id="Animation_3bj6n"]
 length = 0.26666668
@@ -59,19 +67,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/path = NodePath("Sprite2D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.23, 1e-05)]
+"update": 1,
+"values": [16]
 }
 
-[sub_resource type="Animation" id="Animation_1xk1p"]
+[sub_resource type="Animation" id="Animation_tpqbe"]
 resource_name = "spawn"
-length = 3.2666667
+length = 3.1666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,27 +131,100 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/path = NodePath("Sprite2D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.4000001, 2.3333335, 3.0000002),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.2, 2.5666666),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.23, 1e-05), Vector2(0.23, 1e-05), Vector2(0.23, 0.45), Vector2(0.23, 0.45), Vector2(0.23, 1e-05)]
+"values": [0, 19]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3bj6n"]
 _data = {
 &"RESET": SubResource("Animation_3bj6n"),
-&"spawn": SubResource("Animation_1xk1p")
+&"spawn": SubResource("Animation_tpqbe")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bj6n"]
 size = Vector2(41, 21)
 
-[node name="Spike" type="Node2D" unique_id=1575756587 node_paths=PackedStringArray("animation_player")]
-script = ExtResource("1_tpqbe")
+[sub_resource type="SpriteFrames" id="SpriteFrames_oryk6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1s10e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xmf8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_46di5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bx43t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e86gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_038ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60tx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qua77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e1xwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e1xwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qua77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60tx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_038ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e86gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bx43t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_46di5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xmf8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1s10e")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="FireSpike" type="Node2D" unique_id=1575756587 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_m7v42")
 animation_player = NodePath("AnimationPlayer")
 spike_sound = ExtResource("2_7aigw")
 
@@ -165,9 +246,10 @@ metadata/_custom_type_script = "uid://cmuanwm5huih4"
 position = Vector2(-2, -5)
 shape = SubResource("RectangleShape2D_3bj6n")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1227024355]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1012540748]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-2, 5)
-scale = Vector2(0.23, 1e-05)
-texture = ExtResource("5_mtsvd")
+position = Vector2(-2.3841858e-07, 24.999998)
+scale = Vector2(0.23, 0.49)
+sprite_frames = SubResource("SpriteFrames_oryk6")
+frame = 16
 offset = Vector2(0, -230.43478)

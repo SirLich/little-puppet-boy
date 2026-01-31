@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cv58f3cmkscys" path="res://scenes/anger/anger.gd" id="1_wcht5"]
 [ext_resource type="Texture2D" uid="uid://ctau7kud01iqx" path="res://assets/Anger/Anger_Body/Anger_Body-1.png" id="2_eqjtc"]
-[ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_elhyw"]
+[ext_resource type="PackedScene" uid="uid://t3spdettor2f" path="res://scenes/spike/fire_spike.tscn" id="2_ymwoy"]
 [ext_resource type="Texture2D" uid="uid://du4m80wgj4rgq" path="res://assets/Anger/Anger_Body/Anger_Body-2.png" id="3_wyuln"]
 [ext_resource type="Texture2D" uid="uid://bb31vpntxkn7" path="res://assets/Anger/Anger_Body/Anger_Body-3.png" id="4_hnwap"]
 [ext_resource type="PackedScene" uid="uid://cd82rxg1qpvjf" path="res://scenes/sadness/sadness.tscn" id="4_udgi6"]
@@ -281,7 +281,7 @@ radius = 120.50311
 [node name="Anger" type="Node2D" unique_id=1133342481 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation")]
 script = ExtResource("1_wcht5")
 health_component = NodePath("HealthComponent")
-fire_scene = ExtResource("3_elhyw")
+fire_scene = ExtResource("2_ymwoy")
 hurt_animation = NodePath("HurtAnimation")
 death_animation = NodePath("DeathAnimation")
 next_enemy = ExtResource("4_udgi6")
