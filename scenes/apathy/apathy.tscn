@@ -92,6 +92,8 @@ radius = 90.0
 [node name="Apathy" type="Node2D" unique_id=167018356]
 script = ExtResource("1_0tglv")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1359381179]
+
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("1_0uvqh")]
 shadow_size = 96
 

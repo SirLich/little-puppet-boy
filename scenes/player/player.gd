@@ -34,7 +34,6 @@ func skip_entrance():
 	can_move = true
 	
 func do_entrance():
-	print("DO ENTRANCE")
 	attack_animation.play("entrance")
 	player_sprite.play("entrance")
 	await attack_animation.animation_finished

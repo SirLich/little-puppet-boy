@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://buoh1lslc0a3j" path="res://assets/curtain_part_right.png" id="1_2jywc"]
 
-[node name="CurtainTransition" type="ColorRect" unique_id=1587365766]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=837940843]
+
+[node name="CurtainTransition" type="ColorRect" parent="." unique_id=1587365766]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="CurtainLeft" type="TextureRect" parent="." unique_id=554896454]
+[node name="CurtainLeft" type="TextureRect" parent="CurtainTransition" unique_id=554896454]
 layout_mode = 0
 offset_right = 970.0
 offset_bottom = 1080.0
@@ -19,7 +21,7 @@ grow_vertical = 2
 texture = ExtResource("1_2jywc")
 flip_h = true
 
-[node name="CurtainRight" type="TextureRect" parent="." unique_id=897262275]
+[node name="CurtainRight" type="TextureRect" parent="CurtainTransition" unique_id=897262275]
 layout_mode = 0
 offset_left = 951.0
 offset_right = 1921.0
@@ -27,6 +29,3 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_2jywc")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1521248504]
-anchor_mode = 0

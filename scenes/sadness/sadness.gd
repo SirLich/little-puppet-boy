@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var sad_music : AudioStream
 @export var health_component : HealthComponent
 @export var hurt_animation: AnimationPlayer
 @export var transition_audio : AudioStream
@@ -19,7 +18,7 @@ func _ready() -> void:
 	
 func do_intro():
 	Global.fight_started.emit(Global.EnemyType.SADNESS)
-	SoundManager.play_music(sad_music)
+	Utils.get_first_of_type(VoiceOverManager).play_music()
 	
 func on_hurt():
 	hurt_animation.play("hurt")
@@ -27,7 +26,7 @@ func on_hurt():
 func on_died():
 	Global.enemy_died.emit()
 	is_dead = true
-	#play_audio(transition_audio)
+	SoundManager.play_sound(transition_audio)
 	await Utils.wait(7.9)
 	death_animation.play("die")
 	await death_animation.animation_finished

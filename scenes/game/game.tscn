@@ -206,7 +206,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 4.738181321810078
+wait_time = 4.760150305796145
 autostart = true
 script = ExtResource("3_ftsea")
 min_time = 3.0
@@ -224,8 +224,7 @@ scale = Vector2(1.9067129, 1.9067129)
 texture = ExtResource("2_bdhmt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1200371875]
-position = Vector2(833, 637)
-rotation = -0.0035852133
+position = Vector2(838, 434)
 script = ExtResource("5_5i0tg")
 
 [node name="PauseHandler" parent="." unique_id=796881595 instance=ExtResource("2_7h61r")]
@@ -236,7 +235,6 @@ move_speed = 100
 
 [node name="Player" parent="." unique_id=1339953909 instance=ExtResource("4_kelw5")]
 position = Vector2(838, 634)
-rotation = -0.0035852133
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
 
