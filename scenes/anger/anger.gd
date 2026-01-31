@@ -2,7 +2,6 @@ extends Node2D
 class_name Anger
 
 @export var health_component: HealthComponent
-@export var angry_music : AudioStream
 @export var fire_scene :PackedScene
 @export var num_fires = 10
 @export var dash_distance = 700
@@ -26,7 +25,7 @@ func _ready() -> void:
 	
 func do_intro():
 	Global.fight_started.emit(Global.EnemyType.ANGER)
-	SoundManager.play_music(angry_music)
+	Utils.get_first_of_type(VoiceOverManager).play_music()
 	
 func on_hurt():
 	hurt_animation.play("hurt")

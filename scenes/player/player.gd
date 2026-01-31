@@ -89,10 +89,18 @@ func _ready() -> void:
 		skip_entrance()
 
 func died():
+	print("Player died")
 	can_move = false
 	player_sprite.play("die")
 	SoundManager.stop_music(3.0)
-	Utils.wait(3.0)
+	await Utils.wait(3.0)
+	Global.player_dead.emit()
+	await Utils.wait(3)
+	player_sprite.play("move_down")
+	health_component.heal_full()
+	can_move = true
+	
+	global_position += Vector2(0, -500)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):

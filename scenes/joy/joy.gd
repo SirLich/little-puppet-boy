@@ -17,7 +17,6 @@ class_name Joy
 @export var num_time_between_spikes = 0.01
 
 @export_group("Audio")
-@export var joy_music : AudioStream
 @export var intro_audio : AudioStream
 @export var transition_audio : AudioStream
 var audio_index = 0
@@ -77,7 +76,7 @@ func do_intro():
 	await Utils.wait(0.75)
 	await play_audio(intro_audio)
 	Global.fight_started.emit(Global.EnemyType.JOY)
-	SoundManager.play_music(joy_music)
+	Utils.get_first_of_type(VoiceOverManager).play_music()
 	health_component.invulnerable = false
 
 	do_small_jumps()

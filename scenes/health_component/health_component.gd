@@ -20,6 +20,14 @@ func _physics_process(delta: float) -> void:
 	if is_invincible():
 		i_frames -= delta
 
+func heal_full():
+	health = max_health
+	if not get_parent() is Player:
+		pass
+		#Global.enemy_took_damage.emit(health/max_health)
+	else:
+		Global.player_health_changed.emit(health, max_health)
+	
 func take_damage(damage : float) -> void:
 	if is_invincible():
 		return
@@ -31,6 +39,8 @@ func take_damage(damage : float) -> void:
 	
 	if not get_parent() is Player:
 		Global.enemy_took_damage.emit(health/max_health)
+	else:
+		Global.player_health_changed.emit(health, max_health)
 		
 	if do_shake:
 		Utils.get_camera().start_shake(15.0, 0.2, 20)

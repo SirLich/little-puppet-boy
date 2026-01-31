@@ -35,6 +35,13 @@
 [ext_resource type="AudioStream" uid="uid://bynr3qfgvo3eu" path="res://assets/Audio/VO/Unmasked-VO-Sad-4.wav" id="21_tyhjx"]
 [ext_resource type="AudioStream" uid="uid://gghne0y2x01" path="res://assets/Audio/VO/Unmasked-VO-Sad-5.wav" id="22_5q2xh"]
 [ext_resource type="AudioStream" uid="uid://dlg432vkctdck" path="res://assets/Audio/VO/Unmasked-VO-Sad-6.wav" id="23_sikks"]
+[ext_resource type="AudioStream" uid="uid://deogd74xhreit" path="res://assets/Audio/Music/Unmasked-Music-Joy-Loop.wav" id="24_5q2xh"]
+[ext_resource type="AudioStream" uid="uid://bfhvxbax6rlhv" path="res://assets/Audio/Music/Unmasked-Music-Anger.wav" id="25_sikks"]
+[ext_resource type="AudioStream" uid="uid://crfaxi6ka2dd6" path="res://assets/Audio/Music/Unmasked-Music-SadMusic.wav" id="26_ah1mj"]
+[ext_resource type="AudioStream" uid="uid://cr5jn07xuktqh" path="res://assets/Audio/Music/Unmasked-Music-Apathy.wav" id="27_t5owt"]
+[ext_resource type="Texture2D" uid="uid://dkgunr16kv0og" path="res://assets/Lightbulb-2.png" id="32_6ehwc"]
+[ext_resource type="Texture2D" uid="uid://bcor2yh8iytg3" path="res://assets/Lightbulb-1.png" id="32_tyhjx"]
+[ext_resource type="PackedScene" uid="uid://dnhxa81l3wja8" path="res://scenes/game/health_pip.tscn" id="35_0gkf7"]
 
 [sub_resource type="Animation" id="Animation_87uf6"]
 length = 0.001
@@ -99,6 +106,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1969, -51)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Death:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_5jirj"]
 resource_name = "curtains"
@@ -127,10 +146,27 @@ tracks/1/keys = {
 "values": [Vector2(1969, -51), Vector2(1583, -51)]
 }
 
+[sub_resource type="Animation" id="Animation_6ehwc"]
+resource_name = "death"
+length = 5.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Death:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 3.3666666, 4.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vaxfo"]
 _data = {
 &"RESET": SubResource("Animation_vaxfo"),
-&"curtains": SubResource("Animation_5jirj")
+&"curtains": SubResource("Animation_5jirj"),
+&"death": SubResource("Animation_6ehwc")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_bdhmt"]
@@ -139,7 +175,7 @@ font_size = 62
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4j704"]
 shader = ExtResource("10_4j704")
 shader_parameter/outerRadius = 1.0000000475
-shader_parameter/MainAlpha = 0.5910000280725
+shader_parameter/MainAlpha = 0.638000030305
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jirj"]
@@ -158,12 +194,18 @@ joy_voices = Array[AudioStream]([ExtResource("3_8b66f"), ExtResource("4_3jaai"),
 anger_voices = Array[AudioStream]([ExtResource("11_l2dhg"), ExtResource("12_firvq"), ExtResource("13_8krtj"), ExtResource("14_fydea"), ExtResource("15_af6p5"), ExtResource("16_mumkj"), ExtResource("17_2vph8")])
 sadness_voices = Array[AudioStream]([ExtResource("18_2vph8"), ExtResource("19_0gkf7"), ExtResource("20_6ehwc"), ExtResource("21_tyhjx"), ExtResource("22_5q2xh"), ExtResource("23_sikks")])
 timer = NodePath("Timer")
+music_map = Dictionary[int, AudioStream]({
+0: ExtResource("24_5q2xh"),
+1: ExtResource("25_sikks"),
+2: ExtResource("26_ah1mj"),
+3: ExtResource("27_t5owt")
+})
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 5.680785739984433
+wait_time = 5.8644838206356935
 autostart = true
 script = ExtResource("3_ftsea")
 min_time = 3.0
@@ -200,7 +242,21 @@ rotation = -0.0035852133
 [node name="HudAnimation" type="AnimationPlayer" parent="CanvasLayer" unique_id=2022718048]
 libraries/ = SubResource("AnimationLibrary_vaxfo")
 
-[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player", "hud_animation")]
+[node name="HealthRow" type="HBoxContainer" parent="CanvasLayer" unique_id=735070111]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -99.0
+offset_right = 20.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player", "hud_animation", "health_row")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -239.0
@@ -213,6 +269,10 @@ script = ExtResource("8_2a8rs")
 name_label = NodePath("Name")
 animation_player = NodePath("../../AnimationPlayer")
 hud_animation = NodePath("../HudAnimation")
+health_pip = ExtResource("35_0gkf7")
+pip_texture = ExtResource("32_tyhjx")
+dead_pip_texture = ExtResource("32_6ehwc")
+health_row = NodePath("../HealthRow")
 
 [node name="Name" type="Label" parent="CanvasLayer/HUD" unique_id=480834169]
 layout_mode = 2
@@ -234,6 +294,7 @@ show_percentage = false
 script = ExtResource("8_87uf6")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=122441481]
+z_index = 100
 offset_left = -1027.0
 offset_top = -83.0
 offset_right = -57.0
@@ -242,9 +303,10 @@ texture = ExtResource("7_5jirj")
 flip_h = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=830002390]
+z_index = 100
 offset_left = 1969.0
 offset_top = -51.0
-offset_right = 2939.0093
+offset_right = 2939.0054
 offset_bottom = 1174.0
 texture = ExtResource("7_5jirj")
 
@@ -271,6 +333,18 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 0.13333334, 0.06666667)
+
+[node name="Death" type="ColorRect" parent="CanvasLayer" unique_id=987531377]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1535658206]
 material = SubResource("ShaderMaterial_5jirj")

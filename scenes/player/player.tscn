@@ -106,6 +106,7 @@
 [ext_resource type="Texture2D" uid="uid://bna3jcfd78vip" path="res://assets/Puppy/Puppy_Death/Puppy_Death-29.png" id="60_48o5h"]
 [ext_resource type="Texture2D" uid="uid://cxfodnxpggcni" path="res://assets/Puppy/Puppy_Death/Puppy_Death-30.png" id="61_xum3i"]
 [ext_resource type="Texture2D" uid="uid://70bnxdtqatve" path="res://assets/Puppy/Puppy_Death/Puppy_Death-31.png" id="62_ct4wv"]
+[ext_resource type="Texture2D" uid="uid://b357vjtl3x7ay" path="res://assets/blank.png" id="63_tmafg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 45.0
@@ -499,8 +500,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("62_ct4wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_tmafg")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 12.0
 }, {
@@ -716,7 +720,8 @@ shadow_size = 91
 position = Vector2(-3, -73)
 scale = Vector2(1.675, 1.675)
 sprite_frames = SubResource("SpriteFrames_p47bc")
-animation = &"attack_down"
+animation = &"die"
 autoplay = "move_sideways"
-frame_progress = 0.2520649
+frame = 30
+frame_progress = 1.0
 flip_h = true

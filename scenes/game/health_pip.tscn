@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dnhxa81l3wja8"]
+
+[ext_resource type="Texture2D" uid="uid://bcor2yh8iytg3" path="res://assets/Lightbulb-1.png" id="1_y22hu"]
+
+[node name="TextureRect" type="TextureRect" unique_id=1419155431]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("1_y22hu")
+expand_mode = 1
+stretch_mode = 4

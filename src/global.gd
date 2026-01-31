@@ -5,6 +5,8 @@ var settings : JamSettings = load("res://resources/jam_settings.tres")
 signal enemy_died
 signal enemy_took_damage(new_health_percent)
 signal fight_started(enemy : EnemyType)
+signal player_health_changed(new_health, max_health)
+signal player_dead
 
 enum EnemyType {
 	JOY,
