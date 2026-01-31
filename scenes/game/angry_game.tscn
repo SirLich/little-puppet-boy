@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="3_nbuju"]
 [ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="4_tc3qg"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="6_pdw28"]
-[ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="7_pqiqg"]
 [ext_resource type="Script" uid="uid://bbl2eso0epyts" path="res://scenes/game/hud.gd" id="8_yqjns"]
 [ext_resource type="Script" uid="uid://cu5w53moduiy0" path="res://scenes/game/health_bar.gd" id="9_xgkvc"]
 [ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="10_r6fbw"]
@@ -72,6 +71,7 @@ script = ExtResource("1_53woy")
 libraries/ = SubResource("AnimationLibrary_4j704")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=366164865]
+visible = false
 z_index = -1
 position = Vector2(1141, 608.00006)
 rotation = 0.0040509664
@@ -92,42 +92,6 @@ script = ExtResource("3_nbuju")
 position = Vector2(838, 634)
 rotation = -0.0035852133
 skip_intro_self = true
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1703217116]
-z_index = 1
-color = Color(0, 0, 0, 1)
-invert_enabled = true
-polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
-script = ExtResource("7_pqiqg")
-metadata/_edit_lock_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Polygon2D" unique_id=1232552886]
-offset_left = -3209.0
-offset_top = -2404.0
-offset_right = -421.0
-offset_bottom = 2336.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Polygon2D" unique_id=1123906461]
-offset_left = 2457.0
-offset_top = -2046.0
-offset_right = 5245.0
-offset_bottom = 2694.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Polygon2D" unique_id=473793360]
-offset_left = -1933.0
-offset_top = 1590.0
-offset_right = 3867.0
-offset_bottom = 6330.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Polygon2D" unique_id=708558857]
-offset_left = -2047.0
-offset_top = -5118.0
-offset_right = 3753.0
-offset_bottom = -378.0
-color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
 

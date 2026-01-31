@@ -9,6 +9,10 @@ func _ready() -> void:
 	area_entered.connect(on_took_damage)
 	
 func on_took_damage(area: Area2D) -> void:
+	var health_component = Utils.get_component_by_type(get_parent(), HealthComponent) as HealthComponent
+	if health_component.is_invincible():
+		return
+		
 	var damage = 0
 	var attack = area as Attack
 	var knockback = 0
@@ -23,7 +27,6 @@ func on_took_damage(area: Area2D) -> void:
 	if damage == 0:
 		return
 		
-	var health_component = Utils.get_component_by_type(get_parent(), HealthComponent) as HealthComponent
 	health_component.take_damage(damage)
 	
 	if take_knockback and not health_component.invulnerable:

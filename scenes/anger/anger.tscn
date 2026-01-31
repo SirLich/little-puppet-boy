@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cv58f3cmkscys" path="res://scenes/anger/anger.gd" id="1_wcht5"]
 [ext_resource type="Texture2D" uid="uid://ctau7kud01iqx" path="res://assets/Anger/Anger_Body/Anger_Body-1.png" id="2_eqjtc"]
 [ext_resource type="AudioStream" uid="uid://pd76k0ywudvx" path="res://assets/Audio/Music/Anger Music.wav" id="2_vx2qk"]
+[ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_elhyw"]
 [ext_resource type="Texture2D" uid="uid://du4m80wgj4rgq" path="res://assets/Anger/Anger_Body/Anger_Body-2.png" id="3_wyuln"]
 [ext_resource type="Texture2D" uid="uid://bb31vpntxkn7" path="res://assets/Anger/Anger_Body/Anger_Body-3.png" id="4_hnwap"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_wyuln"]
@@ -94,6 +95,7 @@ radius = 120.50311
 script = ExtResource("1_wcht5")
 health_component = NodePath("HealthComponent")
 angry_music = ExtResource("2_vx2qk")
+fire_scene = ExtResource("3_elhyw")
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("5_wyuln")]
 shadow_size = 96
@@ -106,7 +108,7 @@ scale = Vector2(0.605, 0.605)
 position = Vector2(11.570248, -251.23965)
 sprite_frames = SubResource("SpriteFrames_m7jql")
 autoplay = "default"
-frame_progress = 0.7825291
+frame_progress = 0.40742838
 
 [node name="Mask" type="AnimatedSprite2D" parent="Visuals" unique_id=484888302]
 material = SubResource("ShaderMaterial_od12m")
