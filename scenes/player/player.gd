@@ -19,7 +19,10 @@ var last_direction:Vector2
 var speed_mod = 1
 var dash_time = 0
 
-func do_entrance():	
+func skip_entrance():
+	can_move = true
+	
+func do_entrance():
 	attack_animation.play("entrance")
 	player_sprite.play("entrance")
 	await attack_animation.animation_finished
@@ -74,7 +77,10 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("move_sideways")
 	
 func _ready() -> void:
-	do_entrance()
+	if not Global.settings.skip_audio:
+		do_entrance()
+	else:
+		skip_entrance()
 	hit_box.area_entered.connect(on_took_damage)
 
 func _input(event: InputEvent) -> void:
