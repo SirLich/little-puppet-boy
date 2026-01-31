@@ -25,4 +25,4 @@ func on_took_damage(area: Area2D) -> void:
 		var knockback_power = 500
 		var tween = get_tree().create_tween()
 		var loc = parent.global_position + (dir * knockback_power)
-		tween.tween_property(parent, "global_position", loc, 0.1)
+		tween.tween_property(parent, "global_position", loc, 0.2)
