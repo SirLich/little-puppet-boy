@@ -1296,6 +1296,7 @@ sprite_frames = SubResource("SpriteFrames_73maf")
 
 [node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("8_8g10w")]
 process_mode = 3
+damage = 1
 knockback = 300
 
 [node name="JumpExplodeAttack" type="CollisionShape2D" parent="EnemyAttack" unique_id=528120268]

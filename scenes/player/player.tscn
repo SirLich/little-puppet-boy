@@ -705,6 +705,7 @@ shape = SubResource("RectangleShape2D_8afob")
 debug_color = Color(0.9656903, 0.18792239, 1.92523e-07, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("2_dovo2")]
+max_health = 10
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("5_p47bc")]
 shadow_size = 91
@@ -717,5 +718,5 @@ scale = Vector2(1.675, 1.675)
 sprite_frames = SubResource("SpriteFrames_p47bc")
 animation = &"attack_down"
 autoplay = "move_sideways"
-frame_progress = 0.047407363
+frame_progress = 0.2520649
 flip_h = true

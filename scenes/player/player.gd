@@ -91,6 +91,8 @@ func _ready() -> void:
 func died():
 	can_move = false
 	player_sprite.play("die")
+	SoundManager.stop_music(3.0)
+	Utils.wait(3.0)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):

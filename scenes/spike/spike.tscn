@@ -156,6 +156,7 @@ process_mode = 4
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("3_3bj6n")
+damage = 1
 metadata/_custom_type_script = "uid://cmuanwm5huih4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack" unique_id=988755340]
