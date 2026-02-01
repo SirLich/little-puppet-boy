@@ -34,8 +34,8 @@ func on_mouse_exited():
 		modulate = Color(1, 1, 1)
 		
 func on_mouse_entered():
-	if hover_end_sound:
-		SoundManager.play_ui_sound(hover_end_sound)
+	if hover_start_sound:
+		SoundManager.play_ui_sound(hover_start_sound)
 	if label:
 		modulate = Color(1.3, 1.3, 1.3)
 				

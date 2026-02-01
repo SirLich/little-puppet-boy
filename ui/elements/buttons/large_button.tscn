@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmgv2ax1c7oav"]
 
 [ext_resource type="Script" uid="uid://dpucmjhjyy7vg" path="res://ui/elements/buttons/main_menu_button.gd" id="3_0yw6i"]
+[ext_resource type="AudioStream" uid="uid://b00wry608hqur" path="res://addons/sfx_button_hover.ogg" id="3_45iun"]
 [ext_resource type="LabelSettings" uid="uid://dr5n6aixf165u" path="res://ui/elements/buttons/main_menu_label_settings.tres" id="4_0yw6i"]
 
 [node name="LargeButton" type="TextureButton" unique_id=976464029 node_paths=PackedStringArray("label")]
@@ -9,6 +10,7 @@ stretch_mode = 5
 script = ExtResource("3_0yw6i")
 label_text = "Wowser!"
 label_settings = ExtResource("4_0yw6i")
+hover_start_sound = ExtResource("3_45iun")
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=2005700678]
