@@ -9,6 +9,7 @@ slider = NodePath("MasterVolumeSlider")
 
 [node name="Label" type="Label" parent="." unique_id=745962400]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Master Volume"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="." unique_id=1788184391]

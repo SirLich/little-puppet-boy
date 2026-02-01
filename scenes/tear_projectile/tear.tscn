@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://bxq3ep4h1ixdp" path="res://scenes/tear_projectile/tear.gd" id="1_gxjq2"]
 [ext_resource type="Texture2D" uid="uid://dkd47c52hpsfs" path="res://assets/Sadness/Sadness_Mask/Sadness_Tear-20260131T224111Z-3-001/Sadness_Tear/Sadness_Tear-2.png" id="2_yki3v"]
 [ext_resource type="Texture2D" uid="uid://dl1x1xot0fkmk" path="res://assets/Sadness/Sadness_Mask/Sadness_Tear-20260131T224111Z-3-001/Sadness_Tear/Sadness_Tear-3.png" id="3_gxjq2"]
-[ext_resource type="PackedScene" uid="uid://esrufy8jrr3w" path="res://scenes/joy/enemy_attack.tscn" id="4_yki3v"]
+[ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="6_cgbff"]
+[ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="7_kptu7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2dkpl"]
 animations = [{
@@ -23,9 +24,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yki3v"]
-radius = 57.008766
-
 [sub_resource type="Animation" id="Animation_gxjq2"]
 length = 0.001
 tracks/0/type = "value"
@@ -39,6 +37,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyHitBox/CollisionShape2D:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [94.99999]
 }
 
 [sub_resource type="Animation" id="Animation_cgbff"]
@@ -56,6 +66,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.2, 0.2), Vector2(0.2, 0.2), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyHitBox/CollisionShape2D:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2333333, 3.9333336),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [94.99999, 94.99999, 14.89]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kptu7"]
 _data = {
@@ -63,27 +85,36 @@ _data = {
 &"vanish": SubResource("Animation_cgbff")
 }
 
-[node name="Tear" type="Node2D" unique_id=1347581693 node_paths=PackedStringArray("animation_player")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yki3v"]
+radius = 94.99999
+
+[node name="Tear" type="Node2D" unique_id=1347581693 node_paths=PackedStringArray("animation_player", "health_component")]
 script = ExtResource("1_gxjq2")
 animation_player = NodePath("AnimationPlayer")
+health_component = NodePath("HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239568397]
 modulate = Color(0.16075426, 0.17097107, 0.29077134, 1)
-position = Vector2(0, -12.999999)
+position = Vector2(-7.1054274e-15, -13.999999)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_2dkpl")
 autoplay = "default"
 frame = 1
 frame_progress = 0.49609777
-
-[node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("4_yki3v")]
-scale = Vector2(0.2, 0.2)
-damage = 1
-knockback = 50
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttack" unique_id=1019447298]
-shape = SubResource("CircleShape2D_yki3v")
+offset = Vector2(-4.887581e-06, -65)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=274022434]
 libraries/ = SubResource("AnimationLibrary_kptu7")
 autoplay = &"vanish"
+
+[node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("6_cgbff")]
+max_health = 1
+do_broadcast = false
+
+[node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("7_kptu7")]
+contact_damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox" unique_id=1019447298]
+position = Vector2(9.536743e-08, -19.999998)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_yki3v")
