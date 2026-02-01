@@ -88,9 +88,10 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_yki3v"]
 radius = 94.99999
 
-[node name="Tear" type="Node2D" unique_id=1347581693 node_paths=PackedStringArray("animation_player")]
+[node name="Tear" type="Node2D" unique_id=1347581693 node_paths=PackedStringArray("animation_player", "health_component")]
 script = ExtResource("1_gxjq2")
 animation_player = NodePath("AnimationPlayer")
+health_component = NodePath("HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239568397]
 modulate = Color(0.16075426, 0.17097107, 0.29077134, 1)
@@ -116,6 +117,3 @@ contact_damage = 1
 position = Vector2(9.536743e-08, -19.999998)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("CircleShape2D_yki3v")
-
-[node name="HealthComponent2" parent="." unique_id=1452212989 instance=ExtResource("6_cgbff")]
-max_health = 1
