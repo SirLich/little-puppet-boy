@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dpucmjhjyy7vg" path="res://ui/elements/buttons/main_menu_button.gd" id="3_ef8bk"]
 [ext_resource type="LabelSettings" uid="uid://dr5n6aixf165u" path="res://ui/elements/buttons/main_menu_label_settings.tres" id="4_73ojv"]
-[ext_resource type="AudioStream" uid="uid://drm1gt38qw046" path="res://prototype_assets/switch_on_042.wav" id="6_6fyjy"]
-[ext_resource type="AudioStream" uid="uid://bw8o5kh8ox1xt" path="res://prototype_assets/UIAlert_Confirm Middle 12_RSCPC_USIN.wav" id="6_oijsd"]
-[ext_resource type="AudioStream" uid="uid://0vfi8xuygl1e" path="res://prototype_assets/light_switch_019.wav" id="7_of8py"]
 
 [node name="SmallButton" type="TextureButton" unique_id=2026460345 node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(300, 120)
@@ -12,9 +9,6 @@ stretch_mode = 5
 script = ExtResource("3_ef8bk")
 label_text = "Wowser!"
 label_settings = ExtResource("4_73ojv")
-click_sound = ExtResource("6_oijsd")
-hover_start_sound = ExtResource("6_6fyjy")
-hover_end_sound = ExtResource("7_of8py")
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=430826768]
