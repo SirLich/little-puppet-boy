@@ -94,7 +94,7 @@ animation_player = NodePath("AnimationPlayer")
 health_component = NodePath("HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239568397]
-modulate = Color(0.16075426, 0.17097107, 0.29077134, 1)
+modulate = Color(0, 0, 0, 1)
 position = Vector2(-7.1054274e-15, -13.999999)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_2dkpl")
