@@ -15,10 +15,11 @@ extends Node2D
 var is_dead = false
 
 func _ready() -> void:
-	await do_intro()
 	health_component.died.connect(on_died)
 	health_component.hurt.connect(on_hurt)
 	await Utils.wait(2.9)
+	await do_intro()
+
 
 func on_heal():
 	if is_healing:

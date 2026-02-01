@@ -143,5 +143,5 @@ func do_attack():
 		attack_animation.play("attack", -1, attack_speed)
 	await attack_animation.animation_finished
 	attack_shape.process_mode = Node.PROCESS_MODE_DISABLED
-	await Utils.wait(0.4)
+	await Utils.wait(0.2)
 	is_currently_attacking = false
