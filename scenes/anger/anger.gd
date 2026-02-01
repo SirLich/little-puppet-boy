@@ -20,7 +20,7 @@ func _ready() -> void:
 	health_component.died.connect(on_died)
 	health_component.hurt.connect(on_hurt)
 	
-	await Utils.wait(2.9)
+	await Utils.wait(1)
 	do_dash()
 	
 func do_intro():
@@ -68,6 +68,22 @@ func do_dash():
 	tween.tween_property(self, "global_position", pos, dash_speed)
 	await tween.finished
 	
+	if randf() > 0.2:
+		do_idle()
+	else:
+		do_dash()
+		
+func do_idle():
+	if is_dead:
+		return 
+		
+	await get_tree().process_frame
+	var nav = Utils.get_first_of_type(Nav) as Nav
+	for i in range(randi_range(30, 60)):
+		var new_spike = fire_scene.instantiate()
+		new_spike.global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon) + global_position - Vector2(1920/2,1080/2)
+		add_sibling(new_spike)
+		await Utils.wait(0.1)
+		
+	await Utils.wait(randf_range(4, 6))
 	do_dash()
-		
-		
