@@ -17,3 +17,10 @@ Philipp Kapusta
 # **Some other Programming**
 Jonas Dürrschmied
  (@jodeka)
+
+
+
+
+
+
+# **thanks for playing!**

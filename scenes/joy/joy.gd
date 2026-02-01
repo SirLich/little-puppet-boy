@@ -48,7 +48,8 @@ func on_died():
 	is_dead = true
 	animation_player.play("idle")
 	play_audio(transition_audio)
-	await Utils.wait(7.9)
+	var audio_time = transition_audio.get_length()
+	await Utils.wait(audio_time - 5)
 	death_animation.play("die")
 	await death_animation.animation_finished
 	var new_enemy = next_enemy.instantiate()

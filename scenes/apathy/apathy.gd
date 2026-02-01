@@ -67,6 +67,7 @@ func on_hurt():
 	hurt_animation.play("hurt")
 
 func on_died():
+	SoundManager.stop_music(4)
 	Global.enemy_died.emit()
 	is_dead = true
 	await Utils.wait(2.9)

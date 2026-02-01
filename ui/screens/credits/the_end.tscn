@@ -231,8 +231,8 @@ credits_file = "res://credits.md"
 intro_animation = NodePath("ThreadAnimation")
 rope_rip_sound = ExtResource("2_id6hm")
 rope_wobble_sound = ExtResource("3_vuf6o")
-credits_text = NodePath("MarginContainer/CreditsText")
-end_text = NodePath("MarginContainer/end text")
+credits_text = NodePath("CreditsText")
+end_text = NodePath("MarginContainer2/end text")
 
 [node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("3_id6hm")]
 
@@ -242,31 +242,38 @@ scale = Vector2(1.1630137, 0.8885748)
 sprite_frames = SubResource("SpriteFrames_8ooxe")
 animation = &"thread part 2"
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1836863326]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1932589148]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 25.0
+offset_right = 1798.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 414
 theme_override_constants/margin_right = 414
 theme_override_constants/margin_bottom = 0
 
-[node name="end text" type="Label" parent="MarginContainer" unique_id=1672840805]
+[node name="end text" type="Label" parent="MarginContainer2" unique_id=1295847826]
 layout_mode = 2
 text = "the end"
 label_settings = SubResource("LabelSettings_0o8b3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CreditsText" type="RichTextLabel" parent="MarginContainer" unique_id=1746471990]
-layout_mode = 2
+[node name="CreditsText" type="RichTextLabel" parent="." unique_id=1746471990]
+clip_contents = false
+layout_mode = 0
+offset_left = 424.0
+offset_top = 1226.0
+offset_right = 1516.0
+offset_bottom = 2281.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_fonts/bold_font = ExtResource("42_0o8b3")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
+fit_content = true
 scroll_active = false
 scroll_following = true
 horizontal_alignment = 1
@@ -278,7 +285,6 @@ h4 = SubResource("Resource_3d2xo")
 h5 = SubResource("Resource_rjb7h")
 h6 = SubResource("Resource_yhaw1")
 metadata/_custom_type_script = "uid://dbap0gqox0ty1"
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1635146155]
 layout_mode = 0
