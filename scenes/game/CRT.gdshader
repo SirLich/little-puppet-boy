@@ -19,7 +19,7 @@ void fragment( ){
 
 	//simple vignette
     float vignette = (0.0 + 1.0*16.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y));
-	color *= vec3(pow(vignette,0.3));
+	color *= vec3(pow(vignette,0.15));
 
 	//adjust brightness
     color *= vec3(0.95,1.05,0.95);

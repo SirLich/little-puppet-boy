@@ -40,7 +40,6 @@ func do_puddle_attack():
 	await puddle_attack_animation.animation_finished
 	is_healing = false
 	
-	await Utils.wait(2.0)
 	await do_cry_attack()
 
 func do_cry_attack():
@@ -83,7 +82,5 @@ func on_died():
 
 
 func _on_heal_timer_timeout() -> void:
-	print("Healing?")
 	if is_healing:
-		print("healed")
 		health_component.heal(1)

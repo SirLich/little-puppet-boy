@@ -176,9 +176,9 @@ font_size = 62
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4j704"]
 shader = ExtResource("10_4j704")
-shader_parameter/outerRadius = 1.47200006992
-shader_parameter/MainAlpha = 0.2830000134425
-shader_parameter/vignette_color = Color(0, 0, 0, 1)
+shader_parameter/outerRadius = 1.5390000731025
+shader_parameter/MainAlpha = 0.5090000241775
+shader_parameter/vignette_color = Color(0.1512275, 0.08130189, 2.4065375e-08, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jirj"]
 shader = ExtResource("11_kp23o")
