@@ -1,19 +1,19 @@
-# Programming and Game Design
+# **Programming and Game Design**
 Liam Koehler
 (@SirLich)
 
-# Art and Animation
+# **Art and Animation**
 Flores Amersdorffer
 (@neon_flores)
 
-# Writing, Voice Acting, Music
+# **Writing, Voice Acting, Music**
 Alec Shea
 (@alecsheamusic)
 
-# Sound Design, Music
+# **Sound Design, Music**
 Philipp Kapusta
 (@Philipp | PhilsHarmony) 
 
-# Some other Programming
+# **Some other Programming**
 Jonas Dürrschmied
  (@jodeka)

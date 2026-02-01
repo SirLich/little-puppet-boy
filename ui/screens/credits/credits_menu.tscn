@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpc8m8xk7kyxg" path="res://prototype_assets/main_menu_hero.png" id="1_w8los"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="3_6n7pq"]
 [ext_resource type="PackedScene" uid="uid://bum01orwklqho" path="res://ui/elements/buttons/small_button.tscn" id="3_346oy"]
+[ext_resource type="FontFile" uid="uid://b7ppi24y3ctlq" path="res://prototype_assets/fonts/CircusiaRegular.ttf" id="3_trayc"]
 [ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="4_07mnd"]
 [ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="5_trayc"]
 [ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="6_k4ux7"]
@@ -88,6 +89,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/bold_font = ExtResource("3_trayc")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 script = ExtResource("3_6n7pq")
