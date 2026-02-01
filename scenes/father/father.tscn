@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://ctsl2mlxruuc6" path="res://scenes/father/father.gd" id="1_4cap5"]
 [ext_resource type="Texture2D" uid="uid://p6nsac786tig" path="res://assets/father/Father_Darker.png" id="1_wgd3f"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="2_4cap5"]
+[ext_resource type="AudioStream" uid="uid://cra6p4h18kqqo" path="res://assets/Audio/VO/Unmasked-VO-Sad-to-Apathy.wav" id="2_7f6ad"]
+[ext_resource type="PackedScene" uid="uid://dvy356njcohbu" path="res://ui/screens/credits/the_end.tscn" id="2_ggcap"]
 
 [node name="Father" type="Node2D" unique_id=1498553675]
 script = ExtResource("1_4cap5")
+final_voice = ExtResource("2_7f6ad")
+final_scene = ExtResource("2_ggcap")
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("2_4cap5")]
 shadow_size = 59

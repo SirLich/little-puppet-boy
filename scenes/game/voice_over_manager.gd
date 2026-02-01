@@ -49,7 +49,7 @@ func fight_started(new_enemy : Global.EnemyType):
 		active_voice_lines = apathy_voices
 	
 func try_play_voice_line():
-	if voices_active and not audio_stream_player.playing:
+	if voices_active and not audio_stream_player.playing and active_voice_lines.size() > 0:
 		var desired_index = min(index, len(active_voice_lines)-1)
 		var voice_over_steam = active_voice_lines[desired_index]
 		index += 1
