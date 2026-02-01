@@ -15,6 +15,8 @@
 [sub_resource type="Resource" id="Resource_2adsg"]
 resource_local_to_scene = true
 script = ExtResource("4_07mnd")
+override_font_color = true
+font_color = Color(0.8352941, 0.38431373, 0.101960786, 1)
 
 [sub_resource type="Resource" id="Resource_4cih0"]
 resource_local_to_scene = true
@@ -45,8 +47,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_346oy")
 credits_file = "res://credits.md"
-credits_text = NodePath("ScrollContainer/CreditsText")
-back_button = NodePath("VBoxContainer/BackButton")
+credits_text = NodePath("HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer/CreditsText")
+back_button = NodePath("HBoxContainer/BackButton")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1580507757]
 layout_mode = 1
@@ -58,18 +60,31 @@ grow_vertical = 2
 texture = ExtResource("1_w8los")
 stretch_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=520453176]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2016084639]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.028125
-anchor_top = 0.0722222
-anchor_right = 0.759896
-anchor_bottom = 0.952778
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="CreditsText" type="RichTextLabel" parent="ScrollContainer" unique_id=1107777884]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=2061819961]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 40
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1064239677]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 300
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/MarginContainer" unique_id=520453176]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreditsText" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1107777884]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -85,22 +100,7 @@ h6 = SubResource("Resource_rcbv1")
 metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2061819961]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.662
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 31.9598
-offset_top = 135.0
-offset_right = -117.0
-offset_bottom = -144.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/separation = 40
-alignment = 2
-
-[node name="BackButton" parent="VBoxContainer" unique_id=746397855 instance=ExtResource("3_346oy")]
+[node name="BackButton" parent="HBoxContainer" unique_id=746397855 instance=ExtResource("3_346oy")]
 layout_mode = 2
 size_flags_horizontal = 8
 label_text = "Back"
