@@ -74,15 +74,14 @@ func on_died():
 	Global.enemy_died.emit()
 	is_dead = true
 	SoundManager.play_sound(transition_audio)
-	await Utils.wait(7.9)
+	var audio_time = transition_audio.get_length()
+	await Utils.wait(audio_time - 5)
 	death_animation.play("die")
 	await death_animation.animation_finished
 	var new_enemy = next_enemy.instantiate()
 	new_enemy.global_position = global_position
 	add_sibling(new_enemy)
 	self.queue_free()
-	
-
 
 func _on_heal_timer_timeout() -> void:
 	if is_healing:
