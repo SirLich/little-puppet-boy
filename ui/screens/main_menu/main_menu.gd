@@ -5,7 +5,7 @@ class_name MainMenu
 @export var settings_button : BaseButton
 @export var credits_button : BaseButton
 @export var exit_button: TextureButton
-
+@export var start_game_sound : AudioStream
 
 func _ready() -> void:
 	play_button.pressed.connect(on_play_pressed)
@@ -14,6 +14,7 @@ func _ready() -> void:
 	exit_button.pressed.connect(on_exit_pressed)
 
 func on_play_pressed():
+	SoundManager.play_sound(start_game_sound)
 	SoundManager.play_music(Global.settings.game_music, 2.0)
 	SceneManager.change_to_packed_with_carpet_transition(Global.settings.game_scene)
 	
