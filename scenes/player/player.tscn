@@ -862,10 +862,8 @@ shadow_size = 45
 position = Vector2(-3, -73)
 scale = Vector2(1.675, 1.675)
 sprite_frames = SubResource("SpriteFrames_p47bc")
-animation = &"die"
+animation = &"attack_down"
 autoplay = "move_sideways"
-frame = 30
-frame_progress = 1.0
 flip_h = true
 
 [node name="Strings" type="AnimatedSprite2D" parent="Visuals" unique_id=58161337]

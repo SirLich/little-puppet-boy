@@ -15,5 +15,6 @@ final_scene = ExtResource("2_ggcap")
 shadow_size = 59
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1491985040]
-position = Vector2(2, -103)
+position = Vector2(2, -172)
+scale = Vector2(1.675, 1.675)
 texture = ExtResource("1_wgd3f")
