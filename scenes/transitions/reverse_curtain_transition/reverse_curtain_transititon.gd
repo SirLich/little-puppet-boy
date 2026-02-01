@@ -27,10 +27,10 @@ func start_transition(old_scene : Node, fade_slot : Node, scene_slot : Node, new
 	curtain_right_tween.tween_property(curtain_left, "position", curtain_left.position - Vector2(-900, 0), fade_out_time)
 	curtain_left__tween.tween_property(curtain_right, "position", curtain_right.position - Vector2(900, 0), fade_out_time)
 
-	SceneManager.change_to_packed(new_scene)
 	#await fade_out_tween.finished
 	await curtain_right_tween.finished
 	#SceneManager.change_to_packed(new_scene)
+	SceneManager.change_to_packed(new_scene)
 
 	##
 	#var fade_in_tween = tree.create_tween()

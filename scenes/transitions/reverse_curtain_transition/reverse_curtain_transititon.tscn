@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://buti0yxi0mrh3"]
 
 [ext_resource type="Texture2D" uid="uid://kqrc84iq1gp1" path="res://assets/curtain_2_part_right.png" id="1_0m3cj"]
+[ext_resource type="PackedScene" uid="uid://dfxsxqk2vsxt7" path="res://ui/screens/crt_effect.tscn" id="2_o1u6p"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=837940843]
 
@@ -26,3 +27,5 @@ offset_left = 849.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_0m3cj")
+
+[node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("2_o1u6p")]
