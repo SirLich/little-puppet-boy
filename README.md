@@ -4,7 +4,7 @@ This game was created in 48 hours, for [Global Game Jam 2026](https://globalgame
 
 # Releases 
 
-## 1.2.0
+## 1.1.0
 
 - Added controller input bindings
 - Fixed credits (Bug: Credits text file was missing in exported build.)
@@ -13,6 +13,6 @@ This game was created in 48 hours, for [Global Game Jam 2026](https://globalgame
 - Ensure that all music loops
 - Fixed voice lines looping incorrectly for Sadness and Anger fights
 
-## 1.1.0
+## 1.0.0 - 1.0.1
 
-The version we created for Global Game Jam.
+The version we created for Global Game Jam. `1.0.1` was uploaded to Global Game Jam itself, but our first hotfix never made it to itch.
